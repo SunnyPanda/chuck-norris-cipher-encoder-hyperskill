@@ -9,8 +9,10 @@ public class Main {
         System.out.println("Input string:");
         String str = in.nextLine();
 
+        System.out.println("The result:");
         for (char ch : str.toCharArray()) {
-            System.out.print(ch + " ");
+            String binary = String.format("%7s", Integer.toBinaryString(ch)).replace(" ", "0");
+            System.out.printf("%c = %s\n", ch, binary);
         }
     }
 }

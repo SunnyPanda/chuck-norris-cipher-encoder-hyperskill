@@ -9,10 +9,27 @@ public class Main {
         System.out.println("Input string:");
         String str = in.nextLine();
 
-        System.out.println("The result:");
+        StringBuilder sbBinary = new StringBuilder();
         for (char ch : str.toCharArray()) {
-            String binary = String.format("%7s", Integer.toBinaryString(ch)).replace(" ", "0");
-            System.out.printf("%c = %s\n", ch, binary);
+            sbBinary.append(String.format("%7s", Integer.toBinaryString(ch)).replace(" ", "0"));
         }
+
+        StringBuilder result = new StringBuilder();
+        char value = 'x';
+        for (char ch : sbBinary.toString().toCharArray()) {
+            if (ch != value) {
+                value = ch;
+                result.append(" ");
+                switch (ch) {
+                    case '1' -> result.append("0");
+                    case '0' -> result.append("00");
+                }
+                result.append(" ");
+            }
+            result.append("0");
+        }
+
+        System.out.println("The result:");
+        System.out.println(result.toString().trim());
     }
 }

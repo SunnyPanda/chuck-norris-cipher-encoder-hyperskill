@@ -13,7 +13,6 @@ public class Main {
         String result = decode(str);
 
         printResult(result);
-        //System.out.println(result.toString().trim());
     }
 
     private static String encode(String str) {
